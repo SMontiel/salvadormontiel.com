@@ -26,7 +26,6 @@ const postcssPurgecss = require('@fullhuman/postcss-purgecss') ({
 
 mix.sass('src/app.scss', 'public/css')
     //.scripts('src/js/app.js', 'public/js/app.js')
-    .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/fonts')
     .copyDirectory('src/favicon', 'public')
     .options({
         processCssUrls: false,

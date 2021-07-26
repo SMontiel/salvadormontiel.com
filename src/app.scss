@@ -10,11 +10,3 @@ h1,h2,h3,h4,h5,h6 {
 
 @tailwind components;
 @tailwind utilities;
-
-// Font Awesome
-$fa-font-path: "../fonts" !default;
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/css/all.css';
