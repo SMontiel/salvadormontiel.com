@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "clean": "rm -R public",
+        "clean": "rm -fR public",
         "dev": "npm run development",
         "development": "NODE_ENV=development mix",
         "watch": "NODE_ENV=development mix watch",
