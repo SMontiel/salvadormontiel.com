@@ -24,7 +24,7 @@ const postcssPurgecss = require('@fullhuman/postcss-purgecss') ({
     defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
 });
 
-mix.sass('src/app.scss', 'public/css')
+mix.sass('src/app.scss', 'css')
     //.scripts('src/js/app.js', 'public/js/app.js')
     .copyDirectory('src/favicon', 'public')
     .options({
