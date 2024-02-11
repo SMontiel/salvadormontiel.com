@@ -1,7 +1,5 @@
 const mix = require('laravel-mix');
 require('mix-html-builder');
-require('laravel-mix-purgecss');
-const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,34 +12,16 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-const postcssPurgecss = require('@fullhuman/postcss-purgecss') ({
-
-    // Specify the paths to all of the template files in your project
-    content: [
-        './public/*.html'
-    ],
-
-    // Include any special characters you're using in this regular expression
-    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-});
-
-mix.sass('src/app.scss', 'public/css')
+mix.postCss('src/app.css', 'public/css', {}, [
+        require("tailwindcss"),
+        require('autoprefixer'),
+        require('postcss-purgecss-laravel')({
+            content: ['./src/**/*.html']
+        })
+    ])
     //.scripts('src/js/app.js', 'public/js/app.js')
     .copyDirectory('src/favicon', 'public')
     .copyDirectory('src/images', 'public/images')
-    .options({
-        processCssUrls: false,
-        postCss: [
-            tailwindcss('./tailwind.config.js'),
-            require('autoprefixer'),
-            ...process.env.NODE_ENV === 'production' ? [ postcssPurgecss ] : []
-        ],
-    })
-    .purgeCss({
-        enabled: process.env.NODE_ENV === 'production',
-        extensions: ['html'],
-        folders: ['./']
-    })
     .html({
         htmlRoot: './src/index.html',
         output: 'public'
