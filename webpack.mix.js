@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('mix-html-builder');
 require('laravel-mix-purgecss');
 const tailwindcss = require('tailwindcss');
 
@@ -24,7 +25,7 @@ const postcssPurgecss = require('@fullhuman/postcss-purgecss') ({
     defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
 });
 
-mix.sass('src/app.scss', 'css')
+mix.sass('src/app.scss', 'public/css')
     //.scripts('src/js/app.js', 'public/js/app.js')
     .copyDirectory('src/favicon', 'public')
     .options({
@@ -40,4 +41,7 @@ mix.sass('src/app.scss', 'css')
         extensions: ['html'],
         folders: ['./']
     })
-    .setPublicPath('public');
+    .html({
+        htmlRoot: './src/index.html',
+        output: 'public'
+    });
