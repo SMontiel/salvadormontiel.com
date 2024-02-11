@@ -28,6 +28,7 @@ const postcssPurgecss = require('@fullhuman/postcss-purgecss') ({
 mix.sass('src/app.scss', 'public/css')
     //.scripts('src/js/app.js', 'public/js/app.js')
     .copyDirectory('src/favicon', 'public')
+    .copyDirectory('src/images', 'public/images')
     .options({
         processCssUrls: false,
         postCss: [

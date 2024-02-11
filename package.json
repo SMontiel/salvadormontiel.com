@@ -1,11 +1,12 @@
 {
     "private": true,
     "scripts": {
+        "clean": "rm -R public",
         "dev": "npm run development",
         "development": "NODE_ENV=development mix",
         "watch": "NODE_ENV=development mix watch",
         "hot": "NODE_ENV=development mix watch --hot",
-        "prod": "npm run production",
+        "prod": "npm run clean && npm run production",
         "production": "NODE_ENV=production mix --no-progress",
         "serve": "http-server public/"
     },
